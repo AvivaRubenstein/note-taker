@@ -1,6 +1,7 @@
 const notes = require('express').Router();
 const { readAndAppend, readFromFile, writeToFile} = require('../helpers/fsUtils');
-const {v4: uuidv4} = require ('uuid4');
+
+const { v4: uuidv4 } = require('uuid');
 
 //the get request for /api/notes route should get notes and return them as json
 notes.get('/', (req,res) => {
