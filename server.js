@@ -4,7 +4,7 @@ const notesJSON = require('./db/db.json');
 // const notesHtml = require('./public/notes.html');
 // const index = require('./public/index.html');
 const fs = require('fs');
-const { readFromFile, readAndAppend } = require('./helpers/fsUtils');
+const { readFromFile, readAndAppend } = require('../helpers/fsUtils');
 //const { v4: uuidv4 } = require('uuid');
 
 const app = express();
