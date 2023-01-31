@@ -1,8 +1,11 @@
 const express = require('express');
 const PORT = process.env.PORT || 3001;
 const notesJSON = require('./db/db.json');
-const notes = require('./public/')
+// const notesHtml = require('./public/notes.html');
+// const index = require('./public/index.html');
 const fs = require('fs');
+const { readFromFile, readAndAppend } = require('./helpers/fsUtils');
+//const { v4: uuidv4 } = require('uuid');
 
 const app = express();
 
@@ -18,17 +21,17 @@ app.get('/notes', (req, res) => {
     console.info(`${req.method} request received to get saved notes`);
   
     // Sending all reviews to the client
-    return res.json(noteshtml);
+    res.sendFile(path.join(__dirname, '/Users/avivarubenstein/Documents/classwork/note-taker/02-Challenge/public/notes.html'));
   });
   
 // GET request
 //TODO: should read the db.json file and return all saved notes as JSON
 app.get('/api/notes', (req, res) => {
   // Log our request to the terminal
-  console.info(`${req.method} request received to get notes.`);
+  console.info(`${req.method} request received to get notes and return them as JSON.`);
 
-  // Sending all reviews to the client
-  return res.json(notes);
+  //this will read from the JSON file with the notes, and return that data
+  return readFromFile(notesJSON).then((data) => res.json(JSON.parse(data)));
 });
 
 // POST request 
@@ -40,22 +43,22 @@ app.post('/api/notes', (req, res) => {
   console.info(`${req.method} request received to add a review`);
 
   // Prepare a response object to send back to the client
-  let response;
+  let newNote;
 
-  // Check if there is anything in the response body, and if there is a product name sent to it
-  if (req.body && req.body.product) {
+  // Check if there is anything in the response body, and if the full content is present
+  if (req.body && req.body.title && req.body.text) {
     //creating a json object to send back to the user, with the request's entire body in it (under data key)
-    response = {
-      status: 'success',
-      data: req.body,
+    newNote = {
+        title,
+        text,
+        noteId: uuidv4(),
     };
-    res.json(`Review for ${response.data.product} has been added!`);
-  } else {
-    res.json('Request body must at least contain a product name');
-  }
+  readAndAppend(newNote, notesJSON);
 
   // Log the response body to the console
   console.log(req.body);
+
+} res.json(newNote);
 });
 
 // GET request 
@@ -65,7 +68,7 @@ app.get('*', (req, res) => {
     console.info(`${req.method} request received to get reviews`);
   
     // Sending all reviews to the client
-    return res.json(reviews);
+    res.sendFile(path.join(__dirname, 'note-taker/02-Challenge/public/index.html'));
   });
 
 app.listen(PORT, () =>
