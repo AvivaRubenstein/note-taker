@@ -26,6 +26,11 @@ app.get('/notes',(req, res) => {
   res.sendfile(path.join(__dirname, 'public/notes.html'))
 });
 
+app.get('*', (req, res) =>
+  res.sendfile(path.join(__dirname, 'public/index.html'))
+);
+
 app.listen(PORT, () =>
   console.log(`Express server listening on port ${PORT}, open at: http://localhost:${PORT} !`)
 );
+
