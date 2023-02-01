@@ -1,3 +1,57 @@
+# <Note-Taker-App>
+
+## Description
+
+This application is a note taking site which allows users to write, save, reopen, and delete notes on the page.  
+Through building this project, I learned to use Node.js, Express.js, and Heroku together to deploy a functional webpage.  I practiced writing backend for an application through creating a server file with HTTP routes for the frontend of the site to be able to run Fetch requests.  I also learned how to use modular routing and modular code to organize my code's functionality to be more easily understandable.
+
+## Installation
+
+To install this project, you can use node's "npm install" command to install the project's dependencies.
+
+## Usage
+
+To run the application, you can visit the URL at: https://shielded-wildwood-64425.herokuapp.com/ .
+You can click "Get Started" to be redirected to the notes page.  There, you can view the title's of previously written notes on the left side of the screen.  Clicking one of these titles will make the full note appear on the right side of the screen.  From here, you can press the plus button on the top right of the site to add a new note.  Once you've added a note title and a note, you can press the save icon on the top right of the screen to save your note.  The delete icon next to each of the note titles on the left side of the screen allow you to delete any notes that you would like to remove from the page.
+
+
+## Credits
+
+This project was developed using starter code from Columbia's Full Stack Web Development Bootcamp.  It made use of node.js, the UUID package, Express.js, and Heroku.
+
+## License
+
+See LICENSE.txt in repository.
+
+---
+
+🏆 The previous sections are the bare minimum, and your project will ultimately determine the content of this document. You might also want to consider adding the following sections.
+
+## Badges
+
+![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)
+
+Badges aren't necessary, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
+
+## Features
+
+If your project has a lot of features, list them here.
+
+## How to Contribute
+
+If you created an application or package and would like other developers to contribute it, you can include guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own if you'd prefer.
+
+## Tests
+
+
+
+
+
+
+
+
+
+
 # 11 Express.js: Note Taker
 
 ## Your Task
@@ -24,14 +78,15 @@ WHEN I open the Note Taker
 THEN I am presented with a landing page with a link to a notes page
 WHEN I click on the link to the notes page
 THEN I am presented with a page with existing notes listed in the left-hand column, plus empty fields to enter a new note title and the note’s text in the right-hand column
-
-
 WHEN I enter a new note title and the note’s text
 THEN a Save icon appears in the navigation at the top of the page
 WHEN I click on the Save icon
 THEN the new note I have entered is saved and appears in the left-hand column with the other existing notes
+
+
 WHEN I click on an existing note in the list in the left-hand column
 THEN that note appears in the right-hand column
+
 WHEN I click on the Write icon in the navigation at the top of the page
 THEN I am presented with empty fields to enter a new note title and the note’s text in the right-hand column
 ```
